@@ -52,7 +52,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://mern-pizzaorder-application.herokuapp.com",
+  "proxy": "https://mern-pizzaorder-application.herokuapp.com/",
   "devDependencies": {
     "redux-devtools-extension": "^2.13.9"
   }
