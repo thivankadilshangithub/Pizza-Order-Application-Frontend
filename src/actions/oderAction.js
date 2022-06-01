@@ -7,7 +7,7 @@ export const placeOrder = (token, subtotal)=>async(dispatch, getState) => {
     const cartItems = getState().cartReducer.cartItems;
 
     try {
-        const response = await axios.post("/api/orders/placeorder", { token, subtotal, currentUser, cartItems })
+        const response = await axios.post("https://mern-pizzaorder-application.herokuapp.com/api/orders/placeorder", { token, subtotal, currentUser, cartItems })
         console.log(response);
         dispatch({ type: 'PLACE_ORDER_SUCCESS' })
 
@@ -25,7 +25,7 @@ export const getUserOrders=()=>async(dispatch , getState)=>{
     dispatch({ type: 'GET_USER_ORDERS_REQUEST' })
 
     try {
-        const response = await axios.post('/api/orders/getuserorders' , {userid : currentUser._id})
+        const response = await axios.post('https://mern-pizzaorder-application.herokuapp.com/api/orders/getuserorders' , {userid : currentUser._id})
         console.log(response);
         dispatch({ type: 'GET_USER_ORDERS_SUCCES', payload: response.data })
     }
@@ -41,7 +41,7 @@ export const getAllOrders=()=>async(dispatch , getState)=>{
     dispatch({ type: 'GET_ALLORDERS_REQUEST' })
 
     try {
-        const response = await axios.get('/api/orders/getallorders')
+        const response = await axios.get('https://mern-pizzaorder-application.herokuapp.com/api/orders/getallorders')
         console.log(response);
         dispatch({ type: 'GET_ALLORDERS_SUCCES', payload: response.data })
     }
